@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!--Ginger added this Java Script link-->
+  <link rel="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js">
+  <script src="javascript.js"></script>
+  <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+  <!--End of code Ginger added-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<div class="form-container">
+<form id="myform">
+<div class="username">User name: <input type="text" id="user_id"></div>
+<br>
+<div class="password">Password <input  type="password" id="password" name="password"></div>
+
+<div class="confirm_password">Confirm Password <input  type="password" class="right" id="confirm_again" name="password_again"></div>
+<br>
+<!--This is the code that displays the password-->
+<input type="checkbox" onchange= "document.getElementById('password').type= this.checked ? 'text' : 'password' ">
+
+<!--This is the end of code that displays the password-->
+Show password <br/>
+<!--<input type="Submit" value="Submit"/>-->
+<!--<button type="submit" class="btn btn-primary">Submit</button>-->
+</form>
+</div>
+
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">submit</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>SUCCESS</p><br> user account has been created
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+
+<script>
+// just for the demos, avoids form submit
+jQuery.validator.setDefaults({
+  debug: true,
+  success: "valid"
+});
+$( "#myform" ).validate({
+  rules: {
+    password: {
+      required: true,
+      minlength: 8,
+    },
+    password_again: {
+      equalTo: "#password",
+      required: true,
+      minlength: 8,
+    },
+  }
+});
+</script>
+
+ 
+</body>
+</html>
